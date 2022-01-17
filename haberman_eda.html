@@ -102,7 +102,7 @@ sns.FacetGrid(df,hue="survival_status", size = 6)\
 .add_legend()
 plt.show()
 					   </code>
-<img src="\assets\eda images\1.png" alt="Italian Trulli" width="400" height="400">
+<img src="\assets\eda images\1.jpg" alt="Italian Trulli" width="400" height="400">
 				    </pre>
 					<p>
 						<b>Observation from the plot - axil_nodes as independent variable:</b><br>
@@ -123,7 +123,7 @@ sns.FacetGrid(df,hue="survival_status", size = 6)\
 .add_legend()
 plt.show()
 					   </code>
-<img src="\assets\eda images\2.png" alt="Italian Trulli" width="400" height="400">
+<img src="\assets\eda images\2.jpg" alt="Italian Trulli" width="400" height="400">
 				    </pre>
 					<p>
 						<b>Observation: taking operation_Year as independent variable:</b><br>
@@ -138,7 +138,7 @@ sns.FacetGrid(df,hue="survival_status", size = 6)\
 .map(sns.distplot,"age")\
 .add_legend()
 plt.show()		   </code>
-<img src="\assets\eda images\3.png" alt="Italian Trulli" width="400" height="400">
+<img src="\assets\eda images\3.jpg" alt="Italian Trulli" width="400" height="400">
 				    </pre>
 					<p>
 						<b>Observation: taking age as independent variable:</b><br>
@@ -157,7 +157,7 @@ sns.FacetGrid(df, hue="survival_status", size=5) \
 .add_legend()
 plt.show()
 </code>
-<img src="\assets\eda images\4.png" alt="Italian Trulli" width="400" height="400">
+<img src="\assets\eda images\4.jpg" alt="Italian Trulli" width="400" height="400">
 				    </pre>
 					<p>
 						<b>Observations from 2D scatter plot:</b><br>
@@ -184,7 +184,7 @@ sns.set_style("whitegrid")
 sns.pairplot(df, hue="survival_status",size=3, vars=["age","operation_Year","axil_nodes"],diag_kind="hist")
 plt.show()		   
                        </code>
-<img src="\assets\eda images\5.png" alt="Italian Trulli" width="800" height="500">
+<img src="\assets\eda images\5.jpg" alt="Italian Trulli" width="800" height="500">
 				    </pre>
 					<p>
 						<b>Observation from the pair plot:</b><br>
@@ -214,7 +214,7 @@ sns.set_style("whitegrid")
 sns.pairplot(df, hue="survival_status",size=3, vars=["age","operation_Year","axil_nodes"],diag_kind="hist")
 plt.show()		   
                        </code>
-<img src="\assets\eda images\6.png" alt="Italian Trulli" width="400" height="300">
+<img src="\assets\eda images\6.jpg" alt="Italian Trulli" width="400" height="300">
 				    </pre>
 					<p>
 						<b>Observation from the above plot:</b><br>
@@ -240,7 +240,7 @@ cdf = np.cumsum(pdf)
 plt.plot(bin_edges[1:],pdf)
 plt.plot(bin_edges[1:], cdf)	   
                        </code>
-<img src="\assets\eda images\7.png" alt="Italian Trulli" width="400" height="300">
+<img src="\assets\eda images\7.jpg" alt="Italian Trulli" width="400" height="300">
 				    </pre>
 					<p>
 						<b>Observation from the above plot:</b><br>
@@ -300,7 +300,7 @@ output: 20.0 </code>
 					    <code>
 sns.boxplot(x = "survival_status", y = "axil_nodes", data = df)
 </code>
-<img src="\assets\eda images\8.png" alt="Italian Trulli" width="400" height="300">
+<img src="\assets\eda images\8.jpg" alt="Italian Trulli" width="400" height="300">
 				    </pre>
 					<p>
 						<b>Observation from boxplot: </b><br>
@@ -319,7 +319,7 @@ sns.boxplot(x = "survival_status", y = "axil_nodes", data = df)
 					    <code>
 sns.violinplot(x = "survival_status", y = "axil_nodes", data = df, size = 10)
 </code>
-<img src="\assets\eda images\9.png" alt="Italian Trulli" width="400" height="300">
+<img src="\assets\eda images\9.jpg" alt="Italian Trulli" width="400" height="300">
 				    </pre>
 					<p>
 						<b>Observation from the violin plot:</b><br>

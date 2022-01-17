@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+
+    <title>Blogs For Data Science</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+    
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/monokai-sublime.min.css">
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/bootstrap.min.css">
+    
+
+</head> 
+
+<body>
+    
+    
+    
+    <div class="main-wrapper">
+	    
+	    <article class="blog-post px-3 py-5 p-md-5">
+		    <div class="container">
+			    <header class="blog-post-header">
+				    <h2 class="title mb-2">Exploratory data analysis on Haberman dataset:</h2>
+					 
+				    <div class="meta mb-3"><span class="date">Published: jan/17/2022 <br>  </span><span class="time"> 15 min read</span><span class="comment"><a href="#"></a></span></div>
+			    </header>
+			    
+			    <div class="blog-post-body">
+				    
+				    <p><b>About the dataset:</b> The dataset contains cases from a study that was conducted between 1958 and 1970 at the University of Chicago's Billings Hospital on the survival of patients who had undergone surgery for breast cancer.</p>
+					<p>
+						<b>Why it is necessary to perform this analysis?</b><br>
+						It is important to analyze especially in the healthcare domain as it tells us that what are the factors responsible in cancer patients for a cancer and by analyzing these factors, we can prevent the cancer spread and moreover it helps the society.
+						The objective of this analysis is to perform an EDA and we will see what are the reasons for the less survival of the patients suffering from cancer. We will first analyze our dataset, then we will perform the univariate and bivariate analysis to select the feature which is responsible for causing the cancer in the patients and further this analysis can be used in training the machine learning models which could help us in predicting the survival chances of the cancer patients.
+						
+					</p>
+					<p>
+						<b>Steps we will perform in our EDA:<br></b>
+						1.	Analyzing the dataset.<br>
+						2.	Doing the univariate data analysis.<br>
+						3.	Doing the bivariate data analysis.<br>
+						4.	Doing the multi-variate data analysis.<br>
+						5.	Selecting the feature responsible for less survival of the patients.<br>
+						6.	At last we will summarize our data.
+
+					</p>
+					<p>
+						<b>Tools we are using in our Data analysis: </b><br>
+						1.	Jupyter notebook.<br>
+						2.	NumPy for numerical computations such as mean, median, standard deviation, variance etc...<br>
+						3.	Pandas to create and load our data.<br>
+						4.	Seaborn to visualize our data beautifully.
+
+					</p>
+				    
+				    <h3 class="mt-5 mb-3">Analyzing the dataset:</h3>
+				    <pre>
+					    <code>
+print(df.shape)
+output:(306, 4)
+
+print(df.columns)
+output:Index(['age', 'operation_Year', 'axil_nodes', 'survival_status'], dtype='object')
+
+df["survival_status"].value_counts()
+output:
+1    225
+2     81
+Name: survival_status, dtype: int64
+					   </code>
+				    </pre>
+					<p>
+						1.	We will load the dataset using pandas and will count the rows and columns, features present in our dataset.<br>
+						2.	There are four attributes in our columns which we observed above: ['age', 'operation_Year', 'axil_nodes', 'survival_status'].<br>
+						3.	'age' : It represent the age of the patients from 30 to 83.<br>
+						4.	'operation_Year' : Year in whci surgery was done.<br>
+						5.	'axil_nodes' : it ranges for 0 to 52 in our data.<br>
+						6.	'survival_status’: This is the final output whether the patients survived or not. 1 represents patients who survived more than five years and 2 represents the patients who survived less than five years.<br>
+						7.	Total number of patients: 306(total), 225 patients survived more than 5 years and 81 patients who survived less than 5 years after performing the surgery in the hospital.
+
+					</p>
+				    <h3 class="mt-5 mb-3">Performing the univariate data analysis: </h3>
+				    <p>We will do the analysis of each feature (independent variable) with our survival feature as it is an dependent variable in our dataset. We will be plotting the histograms for each feature and the histogram also contains the PDF (Probability density function) of the patients which tell which area is denser.</p>
+					<h5>Univariate analysis with the axillary nodes and survival status as features:</h5>
+					<pre>
+					    <code>
+sns.FacetGrid(df,hue="survival_status", size = 6)\
+.map(sns.distplot,"axil_nodes")\
+.add_legend()
+plt.show()
+					   </code>
+<img src="\assets\eda images\1.png" alt="Italian Trulli" width="400" height="400">
+				    </pre>
+					<p>
+						<b>Observation from the plot - axil_nodes as independent variable:</b><br>
+						On y-axis: It shows the survival of the patients and on x-axis, it shows the number of axil nodes: If there are more number of nodes then the survival is less.<br>
+						1.	No. of axil_nodes < 3(approx.): The survival of patients are more, like there are more percent chance of survival.<br>
+						2.	No. of axil_nodes > 3(approx.): The survival of patients is less, like there is less chance of survival.<br>
+						3.	We can see that the axil_nodes is quite a good feature to see whether the patients will survive or not.<br>
+						4.	We cannot compute the chances or probability of people who survived will less than 3 axil nodes and vice versa.<br>
+						5.	We will use CDF to compute the probability further.<br>
+						6.	The PDF of our plot is right skewed that means a greater number of patients are on the left side of our plot.<br>
+
+					</p>
+					<h5>Univariate analysis with the Year of operation and survival status:</h5>
+					<pre>
+					    <code>
+sns.FacetGrid(df,hue="survival_status", size = 6)\
+.map(sns.distplot,"operation_Year")\
+.add_legend()
+plt.show()
+					   </code>
+<img src="\assets\eda images\2.png" alt="Italian Trulli" width="400" height="400">
+				    </pre>
+					<p>
+						<b>Observation: taking operation_Year as independent variable:</b><br>
+						1.	The plot is messed up and we cannot know whether the time taken to do the cancer operation is anywhere related to the chance of survival.<br>
+						2.	If we take this feature for our univariate analysis then it is very difficult know the survival chance. hence rejecting this feature.
+
+					</p>
+					<h5>Univariate analysis with the Year of operation and survival status</h5>
+					<pre>
+					    <code>
+sns.FacetGrid(df,hue="survival_status", size = 6)\
+.map(sns.distplot,"age")\
+.add_legend()
+plt.show()		   </code>
+<img src="\assets\eda images\3.png" alt="Italian Trulli" width="400" height="400">
+				    </pre>
+					<p>
+						<b>Observation: taking age as independent variable:</b><br>
+						1.	The plot is again messed up and it cannot give the useful insight from median, standard deviation etc...<br>
+						2.	Due to less clarity, we are rejecting this feature and will not compute our statistics on this feature.
+
+					</p>
+
+					<h3 class="mt-5 mb-3">Perform Bivariate analysis - Plot 2D Scatter plots and Pair plots: </h3>
+					<h5>2D scatter plot:</h5>
+					<pre>
+					    <code>
+sns.set_style("whitegrid") #it forms the grib like structure at the back
+sns.FacetGrid(df, hue="survival_status", size=5) \
+.map(plt.scatter, "axil_nodes", "age") \
+.add_legend()
+plt.show()
+</code>
+<img src="\assets\eda images\4.png" alt="Italian Trulli" width="400" height="400">
+				    </pre>
+					<p>
+						<b>Observations from 2D scatter plot:</b><br>
+						1.	Blue points: Represents the points or patients who survived more than 5 years.<br>
+						2.	Orange points: Represents the points or patients who survived less than 5 years.<br>
+						3.	Grid structure: There is a box like structure in the base of the plot which help us to know where datapoints lie.<br>
+						4.	Legend: The plot also has legend which was absent in the previous plot which gives us more clarity what points are about.<br>
+						5.	Critical observation: There are a greater number of blue points comparing it to the orange points
+
+
+					</p>
+					<p>
+						<b>Disadvantages of this plot related to points:</b><br>
+						1.	Overlapping of points: We cannot say why more number of patients surviving more than 5 years and that is very important to know which factors are responsible for survival to do our EDA.<br>
+						2.	Non-Separable: We cannot separate our datapoints with a regression line and draw conclusions.<br>
+						3.	Modification: : We will try to use pair plot to know the relationship of datapoints much better.
+
+					</p>
+					<h5>Pair plot:</h5>
+					<pre>
+					    <code>
+plt.close()
+sns.set_style("whitegrid")
+sns.pairplot(df, hue="survival_status",size=3, vars=["age","operation_Year","axil_nodes"],diag_kind="hist")
+plt.show()		   
+                       </code>
+<img src="\assets\eda images\5.png" alt="Italian Trulli" width="800" height="500">
+				    </pre>
+					<p>
+						<b>Observation from the pair plot:</b><br>
+						1.	Plot 1, Plot 5, Plot 9: It is the histogram of which explain you the density of data, it is of less useful as it is the plot against the same feature so we will consider other plots.<br>
+						2.	Best plot: Plot 3 is the best plot out of other plots and plot 7 is the reverse of plot 3 as axis is changed.<br>
+						3.	Other plots: Other plots do not give us much better information as the points are on overlapping plus they are making a uniform kind of structure from which drawing conclusion is difficult.<br>
+
+						<b>Conclusion:</b><br>
+						1.	We will choose Plot 3 for our further analysis as it gives us the more understanding of our data compared to other plots.<br>
+						2.	We cannot visualize our data in 3-D from the above Plot 3.<br>
+						3.	Now from the pair plot we got to know that plot 3 is a good option to do our analysis further so we will do the univariate analysis on the feature "axil_nodes" and will draw our conclusions.
+
+
+					</p>
+					<h3 class="mt-5 mb-3">Performing the deep univariate analysis such as PDF, CDF, mean, boxplot, violin plots and contour plots: </h3>
+					<p>
+						<b>From the above observation is axillary nodes are greater than 3 then the patients survive less than 5 years and if the axillary nodes are less than 3 then the patients survived more than 5 years so we will separate our data frame into these two variables and will perform our advance univariate analysis.
+						</b>
+					</p>
+					<h5>
+						Plotting the PDF and CDF of the patients survived more than 5 years:
+					</h5>
+					<pre>
+					    <code>
+plt.close()
+sns.set_style("whitegrid")
+sns.pairplot(df, hue="survival_status",size=3, vars=["age","operation_Year","axil_nodes"],diag_kind="hist")
+plt.show()		   
+                       </code>
+<img src="\assets\eda images\6.png" alt="Italian Trulli" width="400" height="300">
+				    </pre>
+					<p>
+						<b>Observation from the above plot:</b><br>
+						* The green line represents CDF and orange line represents the PDF.<br>
+						1.	When the no. of axil_nodes are less than 3(approx.), then there are 85% patients who have less than 3 axillary nodes.<br>
+						2.	As the majority of the patients (225 patients) survived in the study which shows that 285 patients and majority of them have less than 3 axillary nodes
+
+					</p>
+
+
+					<h5>
+						Plotting the PDF and CDF of the patients survived more than 5 years:
+					</h5>
+					<pre>
+					    <code>
+counts, bin_edges = np.histogram(df[survived_less_than_5].axil_nodes, bins=10, density = True)
+pdf = counts/(sum(counts))
+print(pdf)
+print(bin_edges)
+plt.plot(bin_edges[1:],pdf)
+plt.xlabel("No. of axil nodes")
+cdf = np.cumsum(pdf)
+plt.plot(bin_edges[1:],pdf)
+plt.plot(bin_edges[1:], cdf)	   
+                       </code>
+<img src="\assets\eda images\7.png" alt="Italian Trulli" width="400" height="300">
+				    </pre>
+					<p>
+						<b>Observation from the above plot:</b><br>
+						* The green line represents CDF and orange line represents the PDF.<br>
+						1.	The given plot is of the patients who survived less than five years (81 patients).<br>
+						2.	The CDF tells us that the patients who survived less than 5 years and about 60%(approx.) of the patients who survived less than 5 years have more than 3 axillary nodes.<br>
+						3.	The remaining 40% who survived less than 5 years have less than 3 axillary nodes.
+
+
+					</p>
+
+					<h5>
+						Mean, Variance and Std-dev:
+					</h5>
+					<pre>
+					    <code>
+print(np.mean(df[survived_more_than_5].axil_nodes))# mean of patients survived_more_than_5
+output: 2.7911111111111113
+print(np.mean(df[survived_less_than_5].axil_nodes))# mean of patients survived_less_than_5	
+output: 7.45679012345679   
+</code>
+				    </pre>
+					<p>
+						<b>Conclusion from mean and standard deviation: </b><br>
+						* The mean of axillary nodes of patients who survived more than 5 years is 2.79 (less than 3) and those who survived less than 5 years is 7.45 (more than 3). Therefore, we can say that more axillary nodes mean less survival chance.<br>
+						•	The standard deviation from mean of the patients who survived more than 5 years is 5.85 and those who survived less than 5 years have 9.12. Now we can see there is lot of spread when we calculating the distance from so to get more clarity we will work on median.
+
+					</p>
+
+					<h5>
+						Mean, Variance and Std-dev:
+					</h5>
+					<pre>
+					    <code>
+print("The median value of axil_ndoes of the patients survived more than 5 years is : ",np.median(df[survived_more_than_5].axil_nodes))
+output: 0.0
+print("The median value of axil_ndoes of the patients survived more less 5 years is : ",np.median(df[survived_less_than_5].axil_nodes))  
+output: 4.0
+print("The 90th percentiles of the patients survived more than 5 years : ",np.percentile(df[survived_more_than_5].axil_nodes,90))
+output: 8.0
+print("The 90th percentiles of the patients survived less than 5 years : ",np.percentile(df[survived_less_than_5].axil_nodes,90))
+output: 20.0 </code>
+				    </pre>
+					<p>
+						<b>Conclusion: </b><br>
+						•	From the Median and Percentile. We can say that the patients who survived less than 5 years have high numbers of axillary nodes compared to the patients who survived more than 5 years.<br>
+					    •	In a nutshell we can say that patients who have less than 3 axillary nodes survived more.
+
+
+					</p>
+
+
+					<h5>
+						Box plot and Whiskers:
+					</h5>
+					<pre>
+					    <code>
+sns.boxplot(x = "survival_status", y = "axil_nodes", data = df)
+</code>
+<img src="\assets\eda images\8.png" alt="Italian Trulli" width="400" height="300">
+				    </pre>
+					<p>
+						<b>Observation from boxplot: </b><br>
+						•	The blue boxplot represents the patients who survived more than 5 years and orange boxplot represent the patients who less than 5 years.<br>
+						•	The lower part of the boxplot represents 25th quartile and upper part represents 75th percentiles and middle part represents the median.<br>
+						•	We can that range of the patients who survived more than 5 years have axillary nodes less than 3.<br>
+						•	The orange boxplot has the range of 10(approx.) and we can see that more no. of patients who survived less than 5 years have more no. of axillary nodes.
+
+
+					</p>
+
+					<h5>
+						Violin plots:
+					</h5>
+					<pre>
+					    <code>
+sns.violinplot(x = "survival_status", y = "axil_nodes", data = df, size = 10)
+</code>
+<img src="\assets\eda images\9.png" alt="Italian Trulli" width="400" height="300">
+				    </pre>
+					<p>
+						<b>Observation from the violin plot:</b><br>
+						•	The violin plot has a boxplot structure inside the violin shaped graph and the observation from boxplot is already done.<br>
+						•	The curve structure on the side of violin plots is the PDF.<br>
+						•	PDF-1(patients who survived more than 5 years): We can see that the curve is denser below 3 axillary nodes.<br>
+						•	PDF-2(patients who survived less than 5 years): We can see that the curve less dense compared to PDF-1 and there are more no. of axillary nodes in these patients.
+
+					</p>
+					<h4>Summary of our EDA:</h4>
+					<p>
+						
+						✔ Key point 1: The most important feature is axil_nodes in defining whether the patients survived for longer duration or not. Other features such as age and operation year are not as much as important compared to axillary nodes.<br>
+						✔ Key point 2: After analyzing that axil_nodes are the deciding factor(majority) for the longer survival for patients, it is important to know the number of axillary nodes should be there.<br>
+						✔ Key point 3: We observed from our PDF and CDF that if the axil_nodes are less than 3 then the majority i.e. about 85% of patients had less than 3 axil_nodes(approx.) survived more than 5 years whereas if the axil_nodes are more than 3 then about 60% of patients are have more than 3 axil_nodes who survived less than 5 years.<br>
+						✔ Key point 4 : 225 patients who survived have the average number of axil_nodes is 2.789 nodes which is less than 3. The 81 patients who survived less than 5 years have the average axillary nodes is 7.45 which is above 3 making less survival chance.<br>
+						✔ My suggestion: If we try to make machine learning model then my advice would be that we should give more importance to the axillary nodes as it is the deciding factor in the survival of the patients in most of cases.
+
+					</p>
+
+
+
+
+
+
+
+
+
+
+		
+				    
+				   
+			    </div>
+				
+		    </div><!--//container-->
+	    </article>
+	    
+    </div><!--//main-wrapper-->
+    
+
+    
+
+    
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script src="assets/plugins/popper.min.js"></script> 
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+    
+    <!-- Page Specific JS -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="assets/js/blog.js"></script>
+    
+   
+
+</body>
+</html> 
+

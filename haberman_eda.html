@@ -102,8 +102,9 @@ sns.FacetGrid(df,hue="survival_status", size = 6)\
 .add_legend()
 plt.show()
 					   </code>
-<img src="\assets\eda images\1.jpg" alt="Italian Trulli" width="400" height="400">
+
 				    </pre>
+					<img src="\assets\eda images\1.jpg" alt="Italian Trulli" width="400" height="400">
 					<p>
 						<b>Observation from the plot - axil_nodes as independent variable:</b><br>
 						On y-axis: It shows the survival of the patients and on x-axis, it shows the number of axil nodes: If there are more number of nodes then the survival is less.<br>
@@ -123,8 +124,9 @@ sns.FacetGrid(df,hue="survival_status", size = 6)\
 .add_legend()
 plt.show()
 					   </code>
-<img src="\assets\eda images\2.jpg" alt="Italian Trulli" width="400" height="400">
+
 				    </pre>
+					<img src="\assets\eda images\2.jpg" alt="Italian Trulli" width="400" height="400">
 					<p>
 						<b>Observation: taking operation_Year as independent variable:</b><br>
 						1.	The plot is messed up and we cannot know whether the time taken to do the cancer operation is anywhere related to the chance of survival.<br>
@@ -138,8 +140,9 @@ sns.FacetGrid(df,hue="survival_status", size = 6)\
 .map(sns.distplot,"age")\
 .add_legend()
 plt.show()		   </code>
-<img src="\assets\eda images\3.jpg" alt="Italian Trulli" width="400" height="400">
+
 				    </pre>
+					<img src="\assets\eda images\3.jpg" alt="Italian Trulli" width="400" height="400">
 					<p>
 						<b>Observation: taking age as independent variable:</b><br>
 						1.	The plot is again messed up and it cannot give the useful insight from median, standard deviation etc...<br>
@@ -157,8 +160,9 @@ sns.FacetGrid(df, hue="survival_status", size=5) \
 .add_legend()
 plt.show()
 </code>
-<img src="\assets\eda images\4.jpg" alt="Italian Trulli" width="400" height="400">
+
 				    </pre>
+					<img src="\assets\eda images\4.jpg" alt="Italian Trulli" width="400" height="400">
 					<p>
 						<b>Observations from 2D scatter plot:</b><br>
 						1.	Blue points: Represents the points or patients who survived more than 5 years.<br>
@@ -184,8 +188,9 @@ sns.set_style("whitegrid")
 sns.pairplot(df, hue="survival_status",size=3, vars=["age","operation_Year","axil_nodes"],diag_kind="hist")
 plt.show()		   
                        </code>
-<img src="\assets\eda images\5.jpg" alt="Italian Trulli" width="800" height="500">
 				    </pre>
+					<img src="\assets\eda images\5.jpg" alt="Italian Trulli" width="800" height="500">
+
 					<p>
 						<b>Observation from the pair plot:</b><br>
 						1.	Plot 1, Plot 5, Plot 9: It is the histogram of which explain you the density of data, it is of less useful as it is the plot against the same feature so we will consider other plots.<br>
@@ -214,8 +219,9 @@ sns.set_style("whitegrid")
 sns.pairplot(df, hue="survival_status",size=3, vars=["age","operation_Year","axil_nodes"],diag_kind="hist")
 plt.show()		   
                        </code>
-<img src="\assets\eda images\6.jpg" alt="Italian Trulli" width="400" height="300">
 				    </pre>
+					<img src="\assets\eda images\6.jpg" alt="Italian Trulli" width="400" height="300">
+
 					<p>
 						<b>Observation from the above plot:</b><br>
 						* The green line represents CDF and orange line represents the PDF.<br>
@@ -240,8 +246,9 @@ cdf = np.cumsum(pdf)
 plt.plot(bin_edges[1:],pdf)
 plt.plot(bin_edges[1:], cdf)	   
                        </code>
-<img src="\assets\eda images\7.jpg" alt="Italian Trulli" width="400" height="300">
 				    </pre>
+					<img src="\assets\eda images\7.jpg" alt="Italian Trulli" width="400" height="300">
+
 					<p>
 						<b>Observation from the above plot:</b><br>
 						* The green line represents CDF and orange line represents the PDF.<br>
@@ -300,8 +307,9 @@ output: 20.0 </code>
 					    <code>
 sns.boxplot(x = "survival_status", y = "axil_nodes", data = df)
 </code>
-<img src="\assets\eda images\8.jpg" alt="Italian Trulli" width="400" height="300">
 				    </pre>
+					<img src="\assets\eda images\8.jpg" alt="Italian Trulli" width="400" height="300">
+
 					<p>
 						<b>Observation from boxplot: </b><br>
 						•	The blue boxplot represents the patients who survived more than 5 years and orange boxplot represent the patients who less than 5 years.<br>
@@ -319,8 +327,9 @@ sns.boxplot(x = "survival_status", y = "axil_nodes", data = df)
 					    <code>
 sns.violinplot(x = "survival_status", y = "axil_nodes", data = df, size = 10)
 </code>
-<img src="\assets\eda images\9.jpg" alt="Italian Trulli" width="400" height="300">
 				    </pre>
+					<img src="\assets\eda images\9.jpg" alt="Italian Trulli" width="400" height="300">
+
 					<p>
 						<b>Observation from the violin plot:</b><br>
 						•	The violin plot has a boxplot structure inside the violin shaped graph and the observation from boxplot is already done.<br>

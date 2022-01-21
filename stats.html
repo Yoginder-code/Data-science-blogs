@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+
+    <title>Blogs For Data Science</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+    
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/monokai-sublime.min.css">
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme-2.css">
+    
+
+</head> 
+
+<body>
+    <header class="header text-center">	    
+	    <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Yoginder Syal</a></h1>
+        
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+           
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+				    <img class="profile-image mb-3 rounded-circle mx-auto" src="assets/images/profile.png" alt="image" >			
+					
+					<div class="bio mb-3">Hi, my name is Yoginder Syal. I am a Data Science aspirant and I love writting blogs about latest technologies. <br><a href="about.html">Check out my Pofile</a></div><!--//bio-->
+					<ul class="social-list list-inline py-3 mx-auto">
+			            <li class="list-inline-item"><a href="https://www.linkedin.com/in/yoginder-syal-170090192/"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://github.com/Yoginder-code"><i class="fab fa-github-alt fa-fw"></i></a></li>
+			        
+			        </ul><!--//social-list-->
+			        <hr> 
+				</div><!--//profile-section-->
+				
+				<ul class="navbar-nav flex-column text-left">
+					<li class="nav-item active">
+					    <a class="nav-link" href="index.html"><i class="fas fa-home fa-fw mr-2"></i>Blog Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+    </header>
+    
+    
+    <div class="main-wrapper">
+	    
+	    <article class="blog-post px-3 py-5 p-md-5">
+		    <div class="container">
+			    <header class="blog-post-header">
+				    <h2 class="title mb-2">Understanding hypothesis testing, an explanation of A/B testing, and an A/B testing case study.</h2>
+					 
+				    <div class="meta mb-3"><span class="date">Published: jan/8/2022  </span><span class="time"> 15 min read</span><span class="comment"><a href="#"></a></span></div>
+			    </header>
+			    
+			    <div class="blog-post-body">
+				    
+				    <p><b>About the A/B Testing:</b> A/B testing (also known as bucket testing or split-run testing) is a user experience research methodology. A/B tests consist of a randomized experiment with two variants, A and B. It includes application of statistical hypothesis testing or "two-sample hypothesis testing" as used in the field of statistics. A/B testing is a way to compare two versions of a single variable, typically by testing a subject's response to variant A against variant B, and determining which of the two variants is more effective. </p>
+					
+                    <h3>Problem we are trying to solve: </h3>
+					<p>
+						Whether to change the color of the buying button of amazon into blue or not. We are conducting a test and trying to build our concepts by evaluating if we changed the amazon buying button to blue, whether it will increase or decrease our customer sales? We are conducting simple tests and trying to connect dots of various business factors which are related to the sales.
+
+					</p>
+					<img src="assets/stats/button.png" alt="Italian Trulli" width="800" height="300">
+
+					
+					<p>
+						<br>
+						<b>Concept:</b> we are conducting the test in which we will split our customers(data) into some ratio and will compare both components with each other. The test is basically the split and run test.
+
+					</p>
+				    
+				    <h3 class="mt-5 mb-3">Lets get started!</h3>
+	
+					<p>
+						Suppose you are a data scientist of the amazon and you found that if we change the color of buying button into blue then it will result in increase of our sales. Now there is a risk! What if you’re wrong that the blue buying button will reduce the sales instead increasing it. Therefore, you are conducting some tests to make your theory strong and concrete. You decided to use the A/B testing to analyze the behavior of the customer reacting to the blue color of buying button.<br>
+						<br>
+						<b>How will you do?</b><br>
+						We are dividing the tests into the following steps to conduct our experiment:
+						<br>
+						<br>
+						<b>Step 1:</b> Dividing a set of customers into Set A(control) and Set B(experiment):
+						In this step we will divide our customer for example suppose our total number of customers are 1000(in real life the customers are in millions), so we will divide 1000 customers into Set A(control) and Set B(experiment).<br>
+						<br>
+
+
+						<b>Step 2:</b>: Deciding what percent of customers should be in Set A and Set B:
+						Dividing the customers is a tricky part because suppose if we divide the customers 50/50 i.e., 500 customers in Set A and Set B. Suppose what if you’re your experiment went wrong and the result would the loss of 500 customers as our company cannot afford it so what we will do is we will send 10 percent website traffic to Set B(experiment) which will be using the blue color button for buying and remaining 90 percent traffic will be send to the Set A(control). In real life experimenting on whole of our data is super risky and companies most often don’t do it. They do experiment on small chunks of data so that if our experiment went wrong then there are super less chances of getting losses.<br>
+						<br>
+
+						<b>Step 3:</b> Using matrices to compare Set A(control) with Set B(treatment):
+						Now in this we will convert our data into single column matrices using python codes and it is just basically using some NumPy Nd array operations which will convert the data into N-Dimensional arrays. When the data in converted in the form of matrices now we can perform our numerical analysis on this.<br>
+						<br>
+
+						<b>Step 4:</b> Selecting the best measure to compare Set A(compare) with Set B(treatment):
+						Now when the data is converted into an array then after it we have to find the best measure to compare the results. Now the question what measures we should choose?<br>
+						<br>
+						<b>Mean:</b> Mean is basically the average of all the numerical values in our dataset. Here we are having the data of customers and we divided that data into Set A(control) which is having the 90 percent of our data and Set B(treatment) which is having the 10 percent of our data.<br>
+						There is a problem, if we take mean of both because suppose there is a customer(only few of them) who bought a diamond ring or a Rolex watch which will have very high selling then obviously the mean of the Set B(treatment) would be higher and therefore we will conclude the wrong results as mean values are not prone to outliers and  that few rich customers are just the outliers in our dataset.
+
+
+					</p>
+				    <h4 class="mt-5 mb-3">Question: Which measure should we choose to compare the results?</h4>
+				    <p><b>Answer: </b>The median would be the nice measure in this case as median are prone to outliers and it will not consider those few rich customers while taking the average of our data.
+					Median: We will compare the median of Set A(control) with the median of Set B(treatment) and will draw the conclusions on it. Now there is a problem in this experiment as we can see the Set B have very small number of data about 100 customers which is because we cannot train our on whole of our customers but again think about it what if the Set B have the customers(all 100 customers) who tend to spend more than the average number of customers then it is obvious that our median of Set B(treatment) would be higher but in reality we are making our model only on those customers who tend to spend more money while buying goods using blue color button.</p>
+
+
+
+					<h5>How will be we use the Median ? </h5>
+					
+					
+					<p>
+						 We will compare the median of Set A(control) with the median of Set B(treatment) and will draw the conclusions on it. Now there is a problem in this experiment as we can see the Set B have very small number of data about 100 customers which is because we cannot train our on whole of our customers but again think about it what if the Set B have the customers(all 100 customers) who tend to spend more than the average number of customers then it is obvious that our median of Set B(treatment) would be higher but in reality we are making our model only on those customers who tend to spend more money while buying goods using blue color button.
+
+					</p>
+
+					<h6>❌PROBLEM: The samples are not randomly selected and we can see some sort of biasness in our model.</h6>
+					<h6>✅SOLUTION: To solve this problem we will study the concept of hypothesis testing along with the various statistics tests:.</h6>
+				<br>
+					<img src="assets/stats/2.png" alt="Italian Trulli" width="800" height="400">
+					
+					<h5>Key point: </h5>
+				
+					<p>
+						Now we don’t have the data of amazon customers so we will use the random numbers by using pseudo random generator number.
+					</p>
+
+					<h3 class="mt-5 mb-3">1.	BOOTSTRAPPING </h3>
+			
+					<img src="assets/stats/bootstrapping.png" alt="Italian Trulli" width="600" height="400">
+					<p>
+						Bootstrap aggregating, also called bagging (from bootstrap aggregating), is a machine learning ensemble meta-algorithm designed to improve the stability and accuracy of machine learning algorithms used in statistical classification and regression. It also reduces variance and helps to avoid overfitting. Although it is usually applied to decision tree methods, it can be used with any type of method. Bagging is a special case of the model averaging approach.
+					</p>
+					<h5 class="mt-5 mb-3">How it works? </h5>
+					<p>
+						<b>Step 1:</b> It assumes that the data is random and independent.<br>
+						<b>Step 2:</b> we takes the sample from the population (let’s say 100 samples), we will do the random sampling of that 100 samples with replacements and we will do these samples K times.<br>
+						<b>Step 3:</b> After getting the sampled data with replacements we will compute the median of each samples and we will compute the confidence interval of that sampled data to understand our samples behavior more intuitively.
+
+
+					</p>
+					<h5>Pseudo code:</h5>
+					<pre>
+					    <code>
+# Synthetically create a sample with random and independent observations
+
+# Let us use a sample of synthetic data (from some disb) 
+# we generated so that we know the population medain to compare against
+# Let sample from Beta disb with alpha = 2,beta=2 which has a population median of 0.5
+# Refer: https://en.wikipedia.org/wiki/Beta_distribution Median ~ (alpha-1/3)/(alpha+beta-2/3) if alpaha, beta >1
+
+n=100;
+S = np.random.beta(2,2,n) # data can have any distribution.
+
+#Q. Given S, how to estimate the popualtion median?
+
+# function to generate a bootstrap(sampling with repalcement) sample of size n given a sample S. Each sample 
+def bootstrapSample(S, m):
+
+n = S.size; # size of S
+indx = np.random.randint(n, size=m) # generates random integer indices from discrete unif random disb
+r = S[indx]
+return r
+
+
+m = 50; # size of each bootstap sample
+k = 1000; # number of botostrap samples
+
+medians = np.zeros(k)
+
+for i in range(k):
+medians[i] = np.median(bootstrapSample(S, m))
+
+print(medians.size)
+output : 1000  </code>
+				    </pre>
+					<h5>Question: How can we use this concept in our amazon blue button experiment?</h5>
+
+					<p>
+						<b>Answer:</b>
+						 This method is super prone to the outliers in our dataset and gives us mostly the accurate results. We use bootstrapping on our Set A(control) and Set B(experiments) ad will see compare their medians with each other.
+					</p>
+
+
+
+					<h3 class="mt-5 mb-3">2.	PERMUTATION TESTING WITH RESAMPLING: </h3>
+					<img src="assets/stats/permutation.png" alt="Italian Trulli" width="600" height="400">
+					<p>
+						A permutation test (also called re-randomization test) is an exact test, a type of statistical significance test in which the distribution of the test statistic under the null hypothesis is obtained by calculating all possible values of the test statistic under all possible rearrangements of the observed data points. Permutation tests are, therefore, a form of resampling. In other words, the method by which treatments are allocated to subjects in an experimental design is mirrored in the analysis of that design. If the labels are exchangeable under the null hypothesis, then the resulting tests yield exact significance levels; see also exchangeability. Confidence intervals can then be derived from the tests.
+					</p>
+					<h5>
+						We will follow the below steps in this test:
+					</h5>
+					<p>
+						<b>Step 1:</b> Test statistics: We know that the selling price follows the pareto distribution which shows that the data can have some outliers.<br>
+					<b>Step 2:</b>
+					Null hypothesis (Ho): There is no difference between the median of the current color of buying button (lets Mo) and the median of the color of blue button(lets Mb):
+					[Mo-Mb=0] -----> Null hypothesis but there can be some difference (very small) in the median in real life: lets say it is 0.06<br>
+					Alternative hypothesis: That there is a difference between the median of both.<br>
+
+					<b>Step 3:</b> We have 1000 customers and we will divide these 1000 customers in the Set A(control) and Set B(treatment) with resampling 50 times to avoid the biasness in our samples.<br>
+
+					<b>Step 4: </b>Now we will find the probability of our test statistics (Mo and Mb) greater than 0.06 when our null hypothesis is true.<br>
+					Probability (Mo – Mb >= 0.06 when Ho is true)<br>
+					Now if Probability (Mo – Mb >= 0.06 when Ho is true) is less than 5 percent then we will accept our Null hypothesis and will conclude that blue button can increase the sales. <br>
+					If Probability (Mo – Mb >= 0.06 when Ho is true) is more than 5 percent then we will reject our Null hypothesis (Ho) and will accept our alternative hypothesis i.e. There is difference between the median and will not change our button to blue.
+
+					</p>
+					<h5>Pseudo code:</h5>
+					<pre>
+					    <code>
+# Let us write a function for this
+def hypTestMedian(PW,PM):
+
+# observed value of W_Median-M_Median
+obs =  abs(np.percentile(PW,50) - np.percentile(PM,50))
+
+# H0: There is no difference between original and blue button
+
+# P = Concatenate(PM, PW)
+P = np.concatenate((PM,PW)) # tuple of arrays as param. Common mistake
+
+k=1000 # number of resamplings
+testStats = np.zeros(k)
+
+for i in range(k):
+# resampling: split P into two random halves and tag hald as blue and the rest as original.
+# Refer: https://stackoverflow.com/questions/3674409/how-to-split-partition-a-dataset-into-training-and-test-datasets-for-e-g-cros
+np.random.shuffle(P)
+tmp_original, tmp_blue = P[:n], P[n:]
+
+# Compute test-statistic
+testStats[i] = abs(np.percentile(tmp_blue,50) - np.percentile(tmp_original,50))
+
+# Hypothesis testing: P(testStat > Obs | H0 ) can be estimated from testStats.
+
+
+num_h0 = np.sum(testStats >=  obs)
+prob = num_h0/k
+return prob  
+
+#1.
+n=100; # sample size
+
+np.random.seed(100)
+PM = np.random.pareto(a=5.0,size=n)
+PW = np.random.pareto(a=4.0,size=n)
+print(hypTestMedian(PW,PM))
+output : 3.6% #accepting our null hypothesis
+
+</code>
+					</pre>
+						<h3 class="mt-5 mb-3">Conclusion: </h3>
+						<p>
+							These statistical tests help us in understanding the relationship between the samples and these techniques are used in Amazon, Netflix in movie recommendations and many other companies in day-to-day activities while performing decision making. These techniques give us the graphical as well as the numerical intuition about that data and its behavior. We can conduct this experiment if we have the real data of amazon customers and by just using python, we get to know how to make decisions more efficiently with the help of data and computers.
+						</p>
+				    
+
+
+
+
+
+
+
+
+
+
+		
+				    
+				   
+			    </div>
+				
+		    </div><!--//container-->
+	    </article>
+	    
+    </div><!--//main-wrapper-->
+    
+
+    
+
+    
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script src="assets/plugins/popper.min.js"></script> 
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+    
+    <!-- Page Specific JS -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="assets/js/blog.js"></script>
+    
+   
+
+</body>
+</html> 
+

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+
+    <title>Blogs For Data Science</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yug's blog">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+    
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/monokai-sublime.min.css">
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme-7.css">
+    
+
+</head> 
+
+<body>
+	<header class="header text-center">	    
+	    <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Yoginder Syal</a></h1>
+        
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+           
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+				    <img class="profile-image mb-3 rounded-circle mx-auto" src="assets/images/p.jpeg" alt="image" >			
+					
+					<div class="bio mb-3">Hi, my name is Yoginder Syal. I am a Data Science aspirant and I love writting blogs about latest technologies. <br><a href="about.html">Check out my Pofile</a></div><!--//bio-->
+					<ul class="social-list list-inline py-3 mx-auto">
+			            <li class="list-inline-item"><a href="https://www.linkedin.com/in/yoginder-syal-170090192/"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://github.com/Yoginder-code"><i class="fab fa-github-alt fa-fw"></i></a></li>
+			        
+			        </ul><!--//social-list-->
+			        <hr> 
+				</div><!--//profile-section-->
+				
+				<ul class="navbar-nav flex-column text-left">
+					<li class="nav-item active">
+					    <a class="nav-link" href="index.html"><i class="fas fa-home fa-fw mr-2"></i>Blog Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+    </header>
+    
+    
+    
+    <div class="main-wrapper">
+	    
+	    <article class="blog-post px-3 py-5 p-md-5">
+		    <div class="container">
+			    <header class="blog-post-header">
+				    <h2 class="title mb-2">Amazon Fine Food Reviews Analysis:</h2>
+					 
+				    <div class="meta mb-3"><span class="date">Published: Feb/5/2023  </span><span class="time"> 15 min read</span><span class="comment"><a href="#"></a></span></div>
+			    </header>
+			    <div class="blog-post-body">
+				    
+				    <a href="https://www.kaggle.com/snap/amazon-fine-food-reviews">Data Source----->click here</a>
+					<p>
+						<b>The Amazon Fine Food Reviews dataset consists of reviews of fine foods from Amazon.</b><br>
+    
+						1. Number of reviews: 568,454<br>
+                        2. Number of users: 256,059<br>
+                        3. Number of products: 74,258<br>
+                        4. Timespan: Oct 1999 - Oct 2012<br>
+                        5. Number of Attributes/Columns in data: 10<br>
+
+						
+					</p>
+					<p><b>Features Information: Features are basically the name of the columns in our dataset and its like giving heading to the data.</b><br>
+						1.	Id<br>
+                        2.	ProductId - unique identifier for the product<br>
+                        3.	UserId - unqiue identifier for the user<br>
+                        4.	ProfileName<br>
+                        5.	HelpfulnessNumerator - number of users who found the review helpful<br>
+                        6.	HelpfulnessDenominator - number of users who indicated whether they found the review helpful or not<br>
+                        7.	Score - rating between 1 and 5<br>
+                        8.	Time - timestamp for the review<br>
+                        9.	Summary - brief summary of the review<br>
+                        10.	Text - text of the review<br>
+
+
+					</p>
+					<p>
+						<b>Question: What we want to do?</b><br>
+						<b>Answer:</b> if we have a review then using that review we want to analyze whether that review is positive or negative. This study is very important because it helps us to take customer reviews into consideration and by that we can improve the products along with the recommendations..
+
+					</p>
+                    <p>
+						<b>
+                            Question: How to determine if a review is positive or negative?
+                            </b><br>
+						<b>Answer:</b> It’s a very good question because before making our model we need some benchmarks.<br>
+                        <b>Example:</b> In our data if you observe carefully then which is the best feature which could help in differentiating the reviews. “Score” feature is a good one right because it contains rating between 1 and 5. <br>
+
+                        Now scores of 1,2 are considered to be negative reviews and scores of 4,5 are considered to be the positive reviews and we will consider score of 3 as neither positive nor negative which logically makes sense. This is an approximate and a proxy way of determining the polarity of the reviews.
+
+
+
+					</p>
+
+                    <p>
+						<b>Question:How to start or what should we do?</b><br>
+						<b>Answer:</b> For someone who don’t know data science like is clueless but never underestimate our common sense so we will follow the following steps which are quiet logical:<br>
+                        <b>1.Loading the dataset:</b> If we don’t have the data then how can we start our analysis.<br>
+                        <b>2.Reading the dataset:</b> We need to understand the data in depth and see what all columns are there and how to use our intuition.<br>
+                        <b>3.Exploratory Data analysis (EDA):</b> Lot of people don’t take this step seriously and hence end up building the stupid junk models. Remember good data scientist are those who could analyze the data in depth.<br>
+                        We will follow the following steps in our EDA:<br>
+                        <b>•Deduplication:</b> It means removing the duplicate data or removing the data which makes similar sense.<br>
+                        <b>•Text Preprocessing</b> <br>
+                        <b>4.Featurization</b><br>
+                        
+
+					</p>
+				    
+				    <h1 class="mt-5 mb-3">Let’s start our analysis:</h1>
+                    <h2 class="mt-5 mb-3">
+                        Step 1: Loading the dataset:
+                        </h2>
+                        <p>When you download the dataset, it is available in two formats:<br>
+                            1.	.csv file<br>
+                            2.	SQLite Database<br>
+                            <b>Important:</b> We are using sqlite dataset as it is easier to query and visualization is pretty much easy too.<br>
+                            In our analysis we have score feature and in that we are not considering the 3. Scores less than 3 are negative reviews and scores more that 3 are positive reviews. By this way we are preserving the global sentiment.<br>
+                            <b>The following libraries are imported:</b>
+                            </p>
+				    <pre>
+					    <code>
+%matplotlib inline
+import warnings
+warnings.filterwarnings("ignore")
+
+
+import sqlite3
+import pandas as pd
+import numpy as np
+import nltk
+import string
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics import confusion_matrix
+from sklearn import metrics
+from sklearn.metrics import roc_curve, auc
+from nltk.stem.porter import PorterStemmer
+
+import re
+# Tutorial about Python regular expressions: https://pymotw.com/2/re/
+import string
+from nltk.corpus import stopwords
+from nltk.stem import PorterStemmer
+from nltk.stem.wordnet import WordNetLemmatizer
+
+from gensim.models import Word2Vec
+from gensim.models import KeyedVectors
+import pickle
+
+from tqdm import tqdm
+import os
+					   </code>
+				    </pre>
+                    <pre>
+                        <code>
+# using SQLite Table to read data.
+con = sqlite3.connect('database.sqlite') 
+
+# filtering only positive and negative reviews i.e. 
+# not taking into consideration those reviews with Score=3
+# SELECT * FROM Reviews WHERE Score != 3 LIMIT 500000, will give top 500000 data points
+# you can change the number to any other number based on your computing power
+
+# filtered_data = pd.read_sql_query(""" SELECT * FROM Reviews WHERE Score != 3 LIMIT 500000""", con) 
+# for tsne assignment you can take 5k data points
+
+filtered_data = pd.read_sql_query(""" SELECT * FROM Reviews WHERE Score != 3 LIMIT 100000""", con) 
+
+# Give reviews with Score>3 a positive rating(1), and reviews with a score<3 a negative rating(0).
+def partition(x):
+    if x < 3:
+        return 0
+    return 1
+
+#changing reviews with score less than 3 to be positive and vice-versa
+actualScore = filtered_data['Score']
+positiveNegative = actualScore.map(partition) 
+filtered_data['Score'] = positiveNegative
+print("Number of data points in our data", filtered_data.shape)
+filtered_data.head(3)
+                        </code>
+                    </pre>
+                    <h2 class="mt-5 mb-3">
+                        Step 2: Reading the dataset:
+                        </h2>
+					<p>
+						1.	By using the sql we loaded the data and we are extracting the scored from the dataset using sql query.<br>
+                        2.	We are creating the partition function to get the global sentiment.
+                    <pre>
+                        <code>
+display = pd.read_sql_query("""
+SELECT UserId, ProductId, ProfileName, Time, Score, Text, COUNT(*)
+FROM Reviews
+GROUP BY UserId
+HAVING COUNT(*)>1
+""", con)    
+
+print(display.shape)
+display.head()
+                        </code>
+                    </pre>
+
+					</p>
+                    <h2 class="mt-5 mb-3">
+                        Step 3: Exploratory Data analysis (EDA):<br><br>
+                        </h2>
+                        <p>
+                            <h3>1.	Data cleaning or Deduplication: </h3>It is observed that the review data has many duplicate values and we need to remove those values in order to get the unbaised results in our analysis.
+                        </p>
+                        <pre>
+                            <code>
+display= pd.read_sql_query("""
+SELECT *
+FROM Reviews
+WHERE Score != 3 AND UserId="AR5J8UI46CURR"
+ORDER BY ProductID
+""", con)
+display.head()
+                            </code>
+                        </pre>
+                        <p>
+                            <b>Question:</b> What is the problem in our dataset?<br>
+                            <b>Answer:<br>Problem 1: </b>
+
+If you observe the data carefully then you will see that the userID = “AR5J8UI46CURR”, this ID is if of the customer named “Geetha Krishnan”, if we observe the reviews carefully then we see that all the reviews given by her are duplicates.<br>
+What amazon does is: On amazon we’ve products and within that product we’ve multiple categories.<br>
+Example: Suppose you want Samsung galaxy tab s7+ and we’ve variations of this model like wifi , lte etc.. and customer will give review for the variation of the product he purchased but amazon will consider all the reviews given by the customers under Samsung galaxy tab s7+. Here the productid will be different but will have same reviews hence we stuck into the duplicate problem.<br>
+<br>
+<b>Solution: </b> We will remove these duplicate reviews and will keep only one review to maintain no duplication in our data and the following code will help us do that.<br>
+<br>
+<pre>
+    <code>
+#Sorting data according to ProductId in ascending order
+sorted_data=filtered_data.sort_values('ProductId', axis=0, ascending=True, inplace=False, kind='quicksort', na_position='last'
+
+#Deduplication of entries
+final=sorted_data.drop_duplicates(subset={"UserId","ProfileName","Time","Text"}, keep='first', inplace=False)
+final.shape
+
+
+    </code>
+</pre>
+<b>Problem 2: </b>
+It was also seen that in two rows given below the value of HelpfulnessNumerator is greater than HelpfulnessDenominator which is not practically possible hence these two rows too are removed from calculations. This can be error made manually and the following code will help us removing this.<br>
+<pre>
+    <code>
+display= pd.read_sql_query("""
+SELECT *
+FROM Reviews
+WHERE Score != 3 AND Id=44737 OR Id=64422
+ORDER BY ProductID
+""", con)
+
+
+
+final=final[final.HelpfulnessNumerator<=final.HelpfulnessDenominator]
+
+#Before starting the next phase of preprocessing lets see the number of entries left
+print(final.shape)
+
+#How many positive and negative reviews are present in our dataset?
+final['Score'].value_counts()
+Output:
+(87773, 10)
+1    73592
+0    14181
+Name: Score, dtype: int64
+    </code>
+</pre>
+
+                        </p>
+                    <p>
+                        <h3>2. Text Preprocessing:</h3> Text preprocessing is the very important step as it includes removing the unnecessary words which are not required in our modelling and it include following steps:<br>
+                        •	Begin by removing the html tags<br>
+                        •	Remove any punctuations or limited set of special characters like, or. or # etc.<br>
+                        •	Check if the word is made up of English letters and is not alpha-numeric<br>
+                        •	Check to see if the length of the word is greater than 2 (as it was researched that there is no adjective in 2-letters)<br>
+                        •	Convert the word to lowercase<br>
+                        •	Remove Stop words<br>
+                        •	Finally, Snowball Stemming the word (it was observed to be better than Porter Stemming)<br><br><br>
+
+                    <h4>✓ Preprocessing Review Text</h4>
+                    <pre>
+                        <code>
+# https://stackoverflow.com/a/47091490/4084039
+import re
+# https://stackoverflow.com/questions/16206380/python-beautifulsoup-how-to-remove-all-tags-from-an-element
+from bs4 import BeautifulSoup
+
+def decontracted(phrase):
+    # specific
+    phrase = re.sub(r"won't", "will not", phrase)
+    phrase = re.sub(r"can\'t", "can not", phrase)
+
+    # general
+    phrase = re.sub(r"n\'t", " not", phrase)
+    phrase = re.sub(r"\'re", " are", phrase)
+    phrase = re.sub(r"\'s", " is", phrase)
+    phrase = re.sub(r"\'d", " would", phrase)
+    phrase = re.sub(r"\'ll", " will", phrase)
+    phrase = re.sub(r"\'t", " not", phrase)
+    phrase = re.sub(r"\'ve", " have", phrase)
+    phrase = re.sub(r"\'m", " am", phrase)
+    return phrase
+
+    # https://gist.github.com/sebleier/554280
+# we are removing the words from the stop words list: 'no', 'nor', 'not'
+# <br /><br /> ==> after the above steps, we are getting "br br"
+# we are including them into stop words list
+# instead of <br /> if we have <br/> these tags would have revmoved in the 1st step
+
+stopwords= set(['br', 'the', 'i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've",\
+"you'll", "you'd", 'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', \
+'she', "she's", 'her', 'hers', 'herself', 'it', "it's", 'its', 'itself', 'they', 'them', 'their',\
+'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', 'that', "that'll", 'these', 'those', \
+'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', \
+'did', 'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', \
+'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after',\
+'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further',\
+'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more',\
+'most', 'other', 'some', 'such', 'only', 'own', 'same', 'so', 'than', 'too', 'very', \
+'s', 't', 'can', 'will', 'just', 'don', "don't", 'should', "should've", 'now', 'd', 'll', 'm', 'o', 're', \
+'ve', 'y', 'ain', 'aren', "aren't", 'couldn', "couldn't", 'didn', "didn't", 'doesn', "doesn't", 'hadn',\
+"hadn't", 'hasn', "hasn't", 'haven', "haven't", 'isn', "isn't", 'ma', 'mightn', "mightn't", 'mustn',\
+"mustn't", 'needn', "needn't", 'shan', "shan't", 'shouldn', "shouldn't", 'wasn', "wasn't", 'weren', "weren't", \
+'won', "won't", 'wouldn', "wouldn't"])
+
+# Combining all the above stundents 
+from tqdm import tqdm
+preprocessed_reviews = []
+# tqdm is for printing the status bar
+for sentance in tqdm(final['Text'].values):
+    sentance = re.sub(r"http\S+", "", sentance)
+    sentance = BeautifulSoup(sentance, 'lxml').get_text()
+    sentance = decontracted(sentance)
+    sentance = re.sub("\S*\d\S*", "", sentance).strip()
+    sentance = re.sub('[^A-Za-z]+', ' ', sentance)
+    # https://gist.github.com/sebleier/554280
+    sentance = ' '.join(e.lower() for e in sentance.split() if e.lower() not in stopwords)
+    preprocessed_reviews.append(sentance.strip()) 
+
+preprocessed_reviews[1500]  
+Output:
+'way hot blood took bite jig lol'
+                        </code>
+                    </pre>
+
+                    </p>
+                    <h4>✓ Preprocessing Summary</h4>
+                    <pre>
+                        <code>
+                            ## Similartly you can do preprocessing for review summary also.
+
+from tqdm import tqdm
+preprocessed_summary = []
+# tqdm is for printing the status bar
+for sentance in tqdm(final['Summary'].values):
+    sentance = re.sub(r"http\S+", "", sentance)
+    sentance = BeautifulSoup(sentance, 'lxml').get_text()
+    sentance = decontracted(sentance)
+    sentance = re.sub("\S*\d\S*", "", sentance).strip()
+    sentance = re.sub('[^A-Za-z]+', ' ', sentance)
+    # https://gist.github.com/sebleier/554280
+    sentance = ' '.join(e.lower() for e in sentance.split() if e.lower() not in stopwords)
+    preprocessed_summary.append(sentance.strip())
+
+print(preprocessed_summary[1500])
+Output:
+'hot stuff'
+                        </code>
+                    </pre>
+					<h2 class="mt-5 mb-3">
+                        Step 4: Featurization:
+                        </h2
+					<p>
+						If we can convert our features into vectors then we can use the concepts of linear algebra. Now the question is how to convert features into vectors and for that we will use the following techniques:<br><br>
+1.	Bag of words (BOW)<br>
+2.	Bi-grams and N-grams<br>
+3.	TFIDF<br>
+4.	Word2Vec<br>
+5.	Average Word2Vec<br><br>
+6.  TFIDF weighted W2v
+In our featurization step we used the above techniques to featurize our reviews features and used TFIDF weighted Word2vec for our summary feature.<br>
+
+					</p>
+
+					<h3>
+						1.	Bag of words (BOW)
+					</h3>
+					<pre>
+						<code>
+#BoW
+count_vect = CountVectorizer() #in scikit-learn
+count_vect.fit(preprocessed_reviews)
+print("some feature names ", count_vect.get_feature_names()[:10])
+print('='*50)
+
+final_counts = count_vect.transform(preprocessed_reviews)
+print("the shape of out text BOW vectorizer ",final_counts.get_shape())
+print("the number of unique words ", final_counts.get_shape()[1])
+
+Output:
+some feature names  ['aa', 'aaa', 'aaaa', 'aaaaa', 'aaaaaaaaaaaa', 'aaaaaaaaaaaaaaa', 'aaaaaaahhhhhh', 'aaaaaaarrrrrggghhh', 'aaaaaawwwwwwwwww', 'aaaaah']
+==================================================
+the shape of out text BOW vectorizer  (87773, 54904)
+the number of unique words  54904
+						</code>
+					</pre>
+				    
+					<h3>2.	Bi-grams and N-grams</h3>
+					<pre>
+						<code>
+#bi-gram, tri-gram and n-gram
+
+#removing stop words like "not" should be avoided before building n-grams
+# count_vect = CountVectorizer(ngram_range=(1,2))
+# please do read the CountVectorizer documentation http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html
+
+# you can choose these numebrs min_df=10, max_features=5000, of your choice
+count_vect = CountVectorizer(ngram_range=(1,2), min_df=10, max_features=5000)
+final_bigram_counts = count_vect.fit_transform(preprocessed_reviews)
+print("the shape of out text BOW vectorizer ",final_bigram_counts.get_shape())
+print("the number of unique words including both unigrams and bigrams ", final_bigram_counts.get_shape()[1])
+
+Output:
+the shape of out text BOW vectorizer  (87773, 5000)
+the number of unique words including both unigrams and bigrams  5000
+						</code>
+					</pre>
+				    <h3>3.	TFIDF</h3>
+					<pre>
+						<code>
+tf_idf_vect = TfidfVectorizer(ngram_range=(1,2), min_df=10)
+tf_idf_vect.fit(preprocessed_reviews)
+print("some sample features(unique words in the corpus)",tf_idf_vect.get_feature_names()[0:10])
+print('='*50)
+
+final_tf_idf = tf_idf_vect.transform(preprocessed_reviews)
+print("the shape of out text TFIDF vectorizer ",final_tf_idf.get_shape())
+print("the number of unique words including both unigrams and bigrams ", final_tf_idf.get_shape()[1])
+
+Output:
+some sample features(unique words in the corpus) ['aa', 'aafco', 'aback', 'abandon', 'abandoned', 'abdominal', 'ability', 'able', 'able add', 'able brew']
+==================================================
+the shape of out text TFIDF vectorizer  (87773, 51709)
+the number of unique words including both unigrams and bigrams  51709
+						</code>
+					</pre>
+					<h3>
+						4.	Word2Vec
+					</h3>
+					<pre>
+						<code>
+# Train your own Word2Vec model using your own text corpus
+i=0
+list_of_sentance=[]
+for sentance in preprocessed_reviews:
+    list_of_sentance.append(sentance.split())
+
+want_to_train_w2v = True
+
+if want_to_train_w2v:
+    # min_count = 5 considers only words that occured atleast 5 times
+    w2v_model=Word2Vec(list_of_sentance,min_count=5, workers=4)
+    print(w2v_model.wv.most_similar('great'))
+    print('='*50)
+    print(w2v_model.wv.most_similar('worst'))
+
+Output:
+[('fantastic', 0.8015572428703308), ('excellent', 0.7877464294433594), ('awesome', 0.7739230394363403), ('good', 0.7532303929328918), ('terrific', 0.7475600838661194), ('wonderful', 0.7256873846054077), ('fabulous', 0.6477710008621216), ('amazing', 0.6362972259521484), ('perfect', 0.6263070106506348), ('nice', 0.6003227233886719)]
+==================================================
+[('greatest', 0.7908732295036316), ('best', 0.7000352144241333), ('tastiest', 0.6873292326927185), ('nastiest', 0.655041515827179), ('coolest', 0.5937231779098511), ('disgusting', 0.5924288034439087), ('horrible', 0.5863489508628845), ('nicest', 0.5854332447052002), ('smoothest', 0.5803653597831726), ('awful', 0.572299063205719)]
+						</code>
+					</pre>>
+
+					<h3>5.	Average Word2Vec</h3>
+					<pre>
+						<code>
+# average Word2Vec
+# compute average word2vec for each review.
+sent_vectors = []; # the avg-w2v for each sentence/review is stored in this list
+for sent in tqdm(list_of_sentance): # for each review/sentence
+    sent_vec = np.zeros(100) # as word vectors are of zero length 50, you might need to change this to 300 if you use google's w2v
+    cnt_words =0; # num of words with a valid vector in the sentence/review
+    for word in sent: # for each word in a review/sentence
+        if word in w2v_words:
+            vec = w2v_model.wv[word]
+            sent_vec += vec
+            cnt_words += 1
+    if cnt_words != 0:
+        sent_vec /= cnt_words
+    sent_vectors.append(sent_vec)
+print(len(sent_vectors))
+print(len(sent_vectors[0]))
+						</code>
+					</pre>
+					<h3>
+						6. TFIDF weighted W2v
+					</h3>
+					<pre>
+						<code>
+# S = ["abc def pqr", "def def def abc", "pqr pqr def"]
+model = TfidfVectorizer()
+tf_idf_matrix = model.fit_transform(preprocessed_reviews)
+# we are converting a dictionary with word as a key, and the idf as a value
+dictionary = dict(zip(model.get_feature_names(), list(model.idf_)))
+
+# TF-IDF weighted Word2Vec
+tfidf_feat = model.get_feature_names() # tfidf words/col-names
+# final_tf_idf is the sparse matrix with row= sentence, col=word and cell_val = tfidf
+
+tfidf_sent_vectors = []; # the tfidf-w2v for each sentence/review is stored in this list
+row=0;
+for sent in tqdm(list_of_sentance): # for each review/sentence 
+    sent_vec = np.zeros(100) # as word vectors are of zero length
+    weight_sum =0; # num of words with a valid vector in the sentence/review
+    for word in sent: # for each word in a review/sentence
+        if word in w2v_words and word in tfidf_feat:
+            vec = w2v_model.wv[word]
+#             tf_idf = tf_idf_matrix[row, tfidf_feat.index(word)]
+            # to reduce the computation we are 
+            # dictionary[word] = idf value of word in whole courpus
+            # sent.count(word) = tf valeus of word in this review
+            tf_idf = dictionary[word]*(sent.count(word)/len(sent))
+            sent_vec += (vec * tf_idf)
+            weight_sum += tf_idf
+    if weight_sum != 0:
+        sent_vec /= weight_sum
+    tfidf_sent_vectors.append(sent_vec)
+    row += 1
+						</code>
+					</pre>
+					<h2>Conclusion</h2><br>
+					Till now we did EDA and featurization of our dataset and at last we converted our dataset into vectors using preprocessing techniques. After this we will apply machine learning model on our preprocessed dataset which will help us in telling the polarity of the reviews.<br>
+					
+					<br>
+					In machine learning there are various models but we all aware of the fact that Naive bayes algorithm works very well on the text data and will be best suited for our sentiment analysis of the reviews so in future we will apply naive bayes on this dataset and will see the best hyperparameter which will give us good accuracy.<br>
+
+
+
+
+
+
+
+
+
+
+		
+				    
+				   
+			    </div>
+				
+		    </div><!--//container-->
+	    </article>
+	    
+    </div><!--//main-wrapper-->
+    
+
+    
+
+    
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script src="assets/plugins/popper.min.js"></script> 
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+    
+    <!-- Page Specific JS -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="assets/js/blog.js"></script>
+    
+   
+
+</body>
+</html> 
+

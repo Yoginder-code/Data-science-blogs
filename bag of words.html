@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+
+    <title>Blogs For Data Science</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yug's blog">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+    
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/monokai-sublime.min.css">
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme-7.css">
+    
+
+</head> 
+
+<body>
+	<header class="header text-center">	    
+	    <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Yoginder Syal</a></h1>
+        
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+           
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+				    <img class="profile-image mb-3 rounded-circle mx-auto" src="assets/images/p.jpeg" alt="image" >			
+					
+					<div class="bio mb-3">Hi, my name is Yoginder Syal. I am a Data Science aspirant and I love writting blogs about latest technologies. <br><a href="about.html">Check out my Pofile</a></div><!--//bio-->
+					<ul class="social-list list-inline py-3 mx-auto">
+			            <li class="list-inline-item"><a href="https://www.linkedin.com/in/yoginder-syal-170090192/"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://github.com/Yoginder-code"><i class="fab fa-github-alt fa-fw"></i></a></li>
+			        
+			        </ul><!--//social-list-->
+			        <hr> 
+				</div><!--//profile-section-->
+				
+				<ul class="navbar-nav flex-column text-left">
+					<li class="nav-item active">
+					    <a class="nav-link" href="index.html"><i class="fas fa-home fa-fw mr-2"></i>Blog Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+    </header>
+    
+    
+    
+    <div class="main-wrapper">
+	    
+	    <article class="blog-post px-3 py-5 p-md-5">
+		    <div class="container">
+			    <header class="blog-post-header">
+				    <h2 class="title mb-2">IMPLEMENTING BAG OF WORDS (BOW) FROM SCRATCH:</h2>
+					 
+				    <div class="meta mb-3"><span class="date">Published: Feb/17/2023  </span><span class="time"> 15 min read</span><span class="comment"><a href="#"></a></span></div>
+			    </header>
+			    <div class="blog-post-body">
+				    
+				    
+					<p>
+						<b>Question:</b> What the heck is bag of words and why should I read this concept as a Data scientist?<br>
+    
+						<b>Answer:</b> What if I say data science is all about converting the data into mathematical equation and solving it. And now the question is how do we convert the data into math. It will be very confusing if you not aware about the domain of data science in depth. So in this blog I will convince you guys why BOW is important and how we connecting mathematics logic with the data.
+
+						
+					</p><br>
+					<h1><b>Let’s start 😊-----------------></b><br><br>
+						
+
+
+					</h1>
+					<h2><b>Question: </b>What is BOW?</h2>
+                    <p>
+						<b>Answer:</b> According to Wikipedia : The bag-of-words model is a simplifying representation used in natural language processing and information retrieval (IR). In this model, a text (such as a sentence or a document) is represented as the bag (multiset) of its words, disregarding grammar and even word order but keeping multiplicity. The bag-of-words model has also been used for computer vision.<br>
+
+                    <br>
+
+                        Now scores of 1,2 are considered to be negative reviews and scores of 4,5 are considered to be the positive reviews and we will consider score of 3 as neither positive nor negative which logically makes sense. This is an approximate and a proxy way of determining the polarity of the reviews.
+
+
+
+					</p>
+
+                    <p>
+						<b>Important note:</b> In order to solve real world problems, we have the data and to use mathematical knowledge on that data we need to convert that data into vectors, now vectors enable us to use mathematical concepts and bag of words is one of the techniques to convert data into vector format. I hope now most of us understood why mathematics is crucial for building machine learning models. If you don’t know math then it’s obvious that you don’t know what’s happening behind the bush and we will learn how to convert data into vector form using Bag of words from scratch. 
+                        
+
+					</p>
+				    
+				    <p>Before moving ahead we should be clear that this technique is mostly used to convert text data into vectors. Now if we all think in which all domain text data is present then we can find tons and tons of examples.<br><br>
+                        <b>1.	Google news:</b> When you read a news on google news, what you see is texts and as a data scientist your question should that how are we finding out which news is important and coming at top in our search results and yes behind the hood complex mathematical concepts are being used to build these systems.<br>
+                        <b>2.	Amazon product reviews:</b> How are we able to which are the top positive comments or top negatice comments on amazon and yes here also maths is being used.<br>
+                        <b>3.	Email spam classification:</b> How gmail or any mail is able to distinguish between spam or not spam mails, here we use maths.<br><br>
+                        <b>Note:</b> We all aware of various machine learning algotithms like KNN,linear regression.logistic regression, SVN and all. Can these algorithms be able to work if give text data or any data directly into these?<br>
+                        No, we need to convert the data text data into vector format so that these algorithms can work.<br>
+
+                    </p><br><br>
+                    <h3>Understanding the intuition of Bag of words:</h3><br><br>
+
+                    <p><b>Example: </b>In the below example we have list which consists of two sub strings and we will create vocab of this using our custom made function, vocab is like set of all the unique words in our list.</p>
+                    <pre>
+					    <code>
+string = ['Madara Uchiha is considered to be the God of shinobi but Hashirama kicked his butt',
+          'fastest way to get the love ones heart is chidori and it is possible']
+					   </code>
+				    </pre>
+
+                    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets/images/madara.jpeg" alt="image">
+				    
+                    <h5>Step 1: Creating the dictionary of all the unique words in our list :</h5>
+                    <pre>
+                        <code>
+def creating_dict_unique(string):
+    words_unique = set() # here we are using set
+    for i in string:
+        for j in i.split(" "):
+            if len(j) < 2:
+                continue
+            words_unique.add(j)
+    # sorting the unique words and converting them into list again
+    sorted_unique_words = sorted(list(words_unique))
+    
+    # returning the dict of sorted words alog with their index:
+    ans = dict()
+    for i,j in enumerate(sorted_unique_words):
+        ans[j] = i
+    
+    return ans
+
+
+print("-"*100)
+print(creating_dict_unique(string))
+print("-"*100)
+a1=creating_dict_unique(string)
+
+output:
+----------------------------------------------------------------------------------------------------
+{'God': 0, 'Hashirama': 1, 'Madara': 2, 'Uchiha': 3, 'and': 4, 'be': 5, 'but': 6, 
+'butt': 7, 'chidori': 8, 'considered': 9, 'fastest': 10, 'get': 11, 'heart': 12, 
+'his': 13, 'is': 14, 'it': 15, 'kicked': 16, 'love': 17, 'of': 18, 'ones': 19,
+ 'possible': 20, 'shinobi': 21, 'the': 22, 'to': 23, 'way': 24}
+----------------------------------------------------------------------------------------------------
+                        </code>
+                    </pre>
+
+					</p>
+                    <h4 class="mt-5 mb-3">
+                        Step 2: Creating a Custom BOW:<br><br>
+                        </h4>
+                        
+                        <pre>
+                            <code>
+from collections import Counter
+from scipy.sparse import csr_matrix
+
+def count_unique_words(string,vocab):
+    
+    # step 1: Creating the dimensions of each words
+    total_rows = list()
+    total_columns = list()
+    times_word_occured = list()
+    
+    
+    # step 2: Checkinh whether our string is list or not
+    if isinstance(string,(list,)):
+        for index, rows in enumerate(tqdm(string)):
+            
+            # step 3: now we will count the freq of each word in substring using Counter 
+            freq_words = dict(Counter(rows.split()))
+            
+            # taking care of edge case: if length of word 0 or 1 then we continuing
+            for ele, no_count in freq_words.items():
+                if len(ele) < 2:
+                    continue
+            # taking care of edge case: what if word is not present in our vocab then in that case we are returning -1
+                word_not_vocab = vocab.get(ele,-1)
+            # step 4: If the word exist in our vocab then we will store index of string in total_rows and index of vocan in col
+                if word_not_vocab != -1:
+                    #storing the index of word of the substring
+                    total_rows.append(index)
+                    #storing the index where that word present in our vocab
+                    total_columns.append(word_not_vocab)
+                    #storing how many times that word occured in our string
+                    times_word_occured.append(no_count)
+                    
+            # step 5: Making csr matrix cause we convering our matrix into sparse matric
+            
+        sparse_matrix = csr_matrix((times_word_occured, (total_rows,total_columns)), shape=(len(string),len(vocab)))
+        return sparse_matrix
+        pass
+    else:
+        return "Please pass a list of strings"
+    
+    
+   
+                            </code>
+                        </pre>
+                        <p>
+                            <b>The following is the output of our custom Bag of words:<br>
+                            </b><br>
+                            <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets/images/bow output.jpg" alt="image"><br><br>
+
+
+                    <h4>Comparing our customer implementation with Sklearn countvectorizer:</h4>
+                    <br>
+                    <pre>
+                        <code>
+from sklearn.feature_extraction.text import CountVectorizer
+
+vec = CountVectorizer(analyzer='word')
+
+vec.fit(string)
+using_sklearn = vec.transform(string)
+
+df_bow_sklearn = pd.DataFrame(using_sklearn.toarray(),columns=vec.get_feature_names(),index = ['Sub-string 1','Sub-string 2'])
+df_bow_sklearn.head()                            
+                        </code>
+                    </pre>
+                    <b>The following is the output of Sklearn
+                    </b><br><br>
+                    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets/images/sklearn.jpg" alt="image"><br>
+
+                    <h3>CONCLUSION : </h3><p>The Bag of words output is same as the Sklearn output.<br><br><br>
+                        <b>DRAWBACKS OF BAG OF WORDS:<br></b>
+                    1.	It don’t consider the sementic meaning of words.<br>
+                    2.	We need to create vocab very carefully.<br><br>
+                    But there many other state of the art techniques which are used in NLP like word2vec and all.<br>
+
+                    </p>
+
+
+
+
+
+
+
+		
+				    
+				   
+			    </div>
+				
+		    </div><!--//container-->
+	    </article>
+	    
+    </div><!--//main-wrapper-->
+    
+
+    
+
+    
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script src="assets/plugins/popper.min.js"></script> 
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+    
+    <!-- Page Specific JS -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="assets/js/blog.js"></script>
+    
+   
+
+</body>
+</html> 
+

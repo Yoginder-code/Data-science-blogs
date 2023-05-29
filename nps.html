@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+
+    <title>Blogs For Data Science</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yug's blog">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+    
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/monokai-sublime.min.css">
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme-7.css">
+    
+
+</head> 
+
+<body>
+	<header class="header text-center">	    
+	    <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Yoginder Syal</a></h1>
+        
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+           
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+				    <img class="profile-image mb-3 rounded-circle mx-auto" src="assets/images/p.jpeg" alt="image" >			
+					
+					<div class="bio mb-3">Hi, my name is Yoginder Syal. I am a Data Science aspirant and I love writting blogs about latest technologies. <br><a href="about.html">Check out my Pofile</a></div><!--//bio-->
+					<ul class="social-list list-inline py-3 mx-auto">
+			            <li class="list-inline-item"><a href="https://www.linkedin.com/in/yoginder-syal-170090192/"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://github.com/Yoginder-code"><i class="fab fa-github-alt fa-fw"></i></a></li>
+			        
+			        </ul><!--//social-list-->
+			        <hr> 
+				</div><!--//profile-section-->
+				
+				<ul class="navbar-nav flex-column text-left">
+					<li class="nav-item active">
+					    <a class="nav-link" href="index.html"><i class="fas fa-home fa-fw mr-2"></i>Blog Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+    </header>
+    
+    
+    
+    <div class="main-wrapper">
+	    
+	    <article class="blog-post px-3 py-5 p-md-5">
+		    <div class="container">
+			    <header class="blog-post-header">
+				    <h2 class="title mb-2">Net Promoter Score using Numpy</h2>
+					 
+				    <div class="meta mb-3"><span class="date">Published: May/29/2023  </span><span class="time"> 15 min read</span><span class="comment"><a href="#"></a></span></div>
+			    </header>
+                <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets\nps\abc.png" alt="image">
+			    <div class="blog-post-body">
+				    <br>
+					<h1><b>Why we using numpy?</b><br></h1>
+                        <p>   
+                            <b>Answer :</b> We using numpy cause of following reasons :  <br>
+                            1. The biggest advantage of numpy is that its very fast cause numpy is written in C.<br>
+                            2. Numpy is fast because its based upon the homogenity of data unlike python where data is stored in heterogenous manner.<br>
+                            3. It requires very less code as compare to python.<br>
+    
+                            
+                        </p><br>
+						
+
+
+					
+					<h2><b>Let's understand why numpy ? </h2>
+                    <p>
+						<b>Example : </b> The following example shows how numpy require very less amount of code :- </b><br>
+					</p>
+
+                    <p>
+						<b>Given :- </b> List of food and prices, the index of prices represent the corresponding fruits in food list. Find the average price of apples.
+
+                    <h3>Method 1 :  Using python-----></h3>
+                        <pre>
+                            <code>
+# Given list of food and price
+food = ['apple','mango','apple','lichi','avacado','apple','mango','lichi','apple','strawberry']
+price = [10,20,5,7,9,6,11,12,8,5]
+                            </code>
+                        </pre>   
+                        <pre>
+                            <code>
+# storing the index of apples
+index_apples = []
+for i in range(len(food)):
+    if food[i]=='apple':
+        index_apples.append(i)
+print('The indexes where apples are present : ',index_apples)
+
+output:
+----------------------------------------------------------------------------------------------------
+The indexes where apples are present :  [0, 2, 5, 8]
+----------------------------------------------------------------------------------------------------
+
+# finding the places where apples prices are there
+apples_prices = []
+for i in index_apples:
+    for j in range(len(price)):
+        if i == j:
+            apples_prices.append(price[j])
+print('The prices of apples are : ',apples_prices)
+
+output:
+----------------------------------------------------------------------------------------------------
+The prices of apples are :  [10, 5, 6, 8]
+----------------------------------------------------------------------------------------------------
+                            </code>
+                        </pre>  
+                        <pre>
+                            <code>
+# average
+print('The avergae price for apples are : ',sum(mask_prices)/len(mask_prices))
+output:
+----------------------------------------------------------------------------------------------------
+The avergae price for apples are :  7.25
+----------------------------------------------------------------------------------------------------
+                            </code>
+                        </pre>
+					</p>
+                    <h3>Method 2 : Using numpy -----></h3>
+                        <pre>
+                            <code>
+import numpy as np
+# making food and price numpy array
+food = np.array(['apple','mango','apple','lichi','avacado','apple','mango','lichi','apple','strawberry'])
+price = np.array([10,20,5,7,9,6,11,12,8,5])
+                            
+mask_apples = food == 'apple'
+print(mask_apples)
+output:
+----------------------------------------------------------------------------------------------------
+[ True False  True False False  True False False  True False]
+----------------------------------------------------------------------------------------------------
+apples_price = price[mask_apples]
+print('The prices of apples are : ',apples_price)
+
+output:
+----------------------------------------------------------------------------------------------------
+The prices of apples are :  [10  5  6  8]
+----------------------------------------------------------------------------------------------------
+
+print('The average price of apples are : ',np.mean(apples_price))
+output:
+----------------------------------------------------------------------------------------------------
+The average price of apples are :  7.25
+----------------------------------------------------------------------------------------------------
+                            </code>
+                        </pre>
+					</p>
+				    <h3>Observation:</h3>
+
+				    <p>The Method 2 has very less amount of code and it is very efficient compared to python code and hence data scientists use numpy in their day to day analysis.<br>
+                    </p><br><br>
+                    <h1> What is Net Promoter Score (NPS)?</h1><br><br>
+                    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets\nps\ac.png" alt="image">
+
+                    <p><b>Answer : </b>Net Promoter Score (NPS) is a customer loyalty and satisfaction measurement taken from asking customers how likely they are to recommend your product or service to others on a scale of 0-10.</p>
+
+                    <p><b>Example : </b> Suppose you are data analyst at Airbnb and you need to analyze the user survey data and report its NPS to the management. Here we will try to solve this business problem using python library called numpy, by just few lines of code we are able to draw wonderful insights.</p>
+                    <p><b>About the dataset : </b><br> 1. We have Airbnb dataset which contains score given by customers from 0 to 10.<br>
+                        2. Scores from 0 to 6 are called detractors which means that customer is very unlikely to recommend Airbnb services to others.<br>
+                        3. Scores of 9 to 10 are called promoters which means that customer is highly likely to commend Airbnb services to others.<br>
+                        4. Scores of 7 to 8 are called passive and they are like neutral customers.
+                        </p>
+                    <p><b>Note: Net promoter score (NPS) = Percentage of Promoters / Percentage of Detractors.</b></p>
+                    <p class="title mb-1"><a href="https://drive.google.com/file/d/1wMxbs3NwbcPUIIcDwdgQTM266bN0kEUv/view?usp=sharing">Dataset link</a></p><br>
+
+                    <h2>Let's calculate Airbnb NPS :- </h2>
+
+                    <pre>
+                        <code>
+# loading the dataset:
+score = np.loadtxt("..file location..",dtype="int")
+total = score.shape[0]
+print('Total scores we have : ',total)
+output:
+----------------------------------------------------------------------------------------------------
+Total scores we have :  1167
+----------------------------------------------------------------------------------------------------
+                        </code>
+                    </pre>
+                   <pre>
+                    <code>
+#extracting detractors from score : 
+detractor_mask = score<7
+detractor = score[detractor_mask]
+detractor_no = detractor.shape[0]
+percentage_detractor = detractor_no*100/total
+print('The percentage of detractors are : ',round(percentage_detractor),'%')
+output:
+----------------------------------------------------------------------------------------------------
+The percentage of detractors are :  28 %
+----------------------------------------------------------------------------------------------------
+                    </code>
+                   </pre>
+                <pre>
+                    <code>
+promoter_mask = score>8
+promoter = score[promoter_mask]
+promoter_no = promoter.shape[0]
+percentage_promoter = promoter_no*100/total
+print('The percentage of promoters are : ',round(percentage_promoter),'%')
+output:
+----------------------------------------------------------------------------------------------------
+The percentage of promoters are :  52 %
+----------------------------------------------------------------------------------------------------
+
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+nps = percentage_promoter-percentage_detractor
+print('The Net Promoter Score of Airbnb : ',round(nps),'%')
+----------------------------------------------------------------------------------------------------
+The Net Promoter Score of Airbnb :  24 %
+----------------------------------------------------------------------------------------------------
+                    </code>
+                </pre>
+                <h2>Observation : </h2><br>
+                <b>1. The NPS of Airbnb is 24%. It help us to know to know how many of its customers were assets and how many were liabilities. By correlating the customer's subjective response to an objective number, the metric can be used to legitimately drive a company's internal priorities.<br><br>
+                2. Just by few lines of python code we can easily find out NPS of any company and this metric gives us useful insight related to customers.<br><br>
+                3. We can also observe how numpy library of python is effective and effecient way to analyse the data. </p></b>
+                
+                <p>Thanks for reading 😄 </p>
+
+
+
+		
+				    
+				   
+			    </div>
+				
+		    </div><!--//container-->
+	    </article>
+	    
+    </div><!--//main-wrapper-->
+    
+
+    
+
+    
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script src="assets/plugins/popper.min.js"></script> 
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+    
+    <!-- Page Specific JS -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="assets/js/blog.js"></script>
+    
+   
+
+</body>
+</html> 
+

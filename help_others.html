@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about SplashKit, its installation process, examples, and real-life applications.">
+    <title>SplashKit: A Comprehensive Guide</title>
+    <style>
+        /* CSS for basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #008cba;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: #008cba;
+            background-color: #444;
+            border-radius: 5px;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            border-bottom: 2px solid #008cba;
+            padding-bottom: 10px;
+            color: #008cba;
+        }
+
+        code {
+            background-color: #f4f4f9;
+            padding: 10px;
+            border-radius: 5px;
+            display: block;
+            margin: 10px 0;
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            border-top: 2px solid #008cba;
+        }
+
+        .note {
+            background-color: #fff4e5;
+            padding: 15px;
+            border-left: 5px solid #ffa500;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .example-code {
+            background-color: #eee;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        .references {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .contributors {
+            background-color: #e9f5f9;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid #008cba;
+            margin-top: 20px;
+        }
+
+        .contributors ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .contributors li {
+            margin-bottom: 10px;
+        }
+
+        .contributors a {
+            color: #008cba;
+            text-decoration: none;
+        }
+
+        .contributors a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>SplashKit: A Comprehensive Guide</h1>
+        <p>Explore the world of SplashKit - installation, examples, and applications</p>
+    </header>
+
+    <nav>
+        <a href="#what-is-splashkit">What is SplashKit?</a>
+        <a href="#installation">Installation Guide</a>
+        <a href="#examples">Examples</a>
+        <a href="#data-science">SplashKit & Data Science</a>
+        <a href="#use-cases">Real-Life Use Cases</a>
+        <a href="#contributors">Contributors</a>
+    </nav>
+
+    <main>
+        <section id="what-is-splashkit">
+            <h2>What is SplashKit?</h2>
+            <p>SplashKit is a powerful, open-source multimedia library designed to make programming more accessible and enjoyable, especially for beginners and educators. It provides a wide range of tools and functionalities for building interactive applications and games across different platforms. SplashKit supports multiple programming languages, including C++, C#, and Python, making it versatile and easy to integrate into various projects.</p>
+
+            <h3>Key Features of SplashKit</h3>
+            <ul>
+                <li><strong>Cross-Platform Support:</strong> SplashKit works seamlessly on Windows, macOS, and Linux.</li>
+                <li><strong>Rich Multimedia Capabilities:</strong> Offers tools for graphics, audio, animations, and more.</li>
+                <li><strong>User-Friendly API:</strong> Designed to be intuitive for beginners while still powerful for advanced users.</li>
+                <li><strong>Community and Open Source:</strong> Backed by a strong community and openly available for modification and improvement.</li>
+            </ul>
+        </section>
+
+        <section id="installation">
+            <h2>Steps and Guidance to Install SplashKit</h2>
+            <p>Installing SplashKit involves four main steps: setting up MSYS2, installing SplashKit, configuring Visual Studio Code, and setting up language-specific tools. Follow these steps to get started with SplashKit on your Windows machine.</p>
+
+            <h3>Step 1: Install MSYS2 and Command Line Tools</h3>
+            <ol>
+                <li><strong>Download MSYS2:</strong>
+                    <ul>
+                        <li>Go to the <a href="https://www.msys2.org" target="_blank">MSYS2 website</a> and download the installer.</li>
+                        <li>Run the installer and follow the instructions.</li>
+                    </ul>
+                </li>
+                <li><strong>Update MSYS2:</strong>
+                    <ul>
+                        <li>Open the MSYS2 terminal and run the following commands:</li>
+                        <li><code>pacman -Syu</code></li>
+                    </ul>
+                </li>
+                <li><strong>Install Command Line Tools:</strong>
+                    <ul>
+                        <li>Use the MSYS2 terminal to install essential build tools:</li>
+                        <li><code>pacman -S base-devel mingw-w64-x86_64-toolchain</code></li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>Step 2: Install SplashKit</h3>
+            <ol>
+                <li><strong>Download SplashKit:</strong>
+                    <ul>
+                        <li>Visit the <a href="https://github.com/splashkit/splashkit" target="_blank">SplashKit GitHub page</a> to download the library.</li>
+                        <li>Extract the downloaded files to a convenient location on your system.</li>
+                    </ul>
+                </li>
+                <li><strong>Build SplashKit:</strong>
+                    <ul>
+                        <li>In the MSYS2 terminal, navigate to the SplashKit directory:</li>
+                        <li><code>cd /path/to/splashkit</code></li>
+                        <li>Run the build script:</li>
+                        <li><code>./build.sh</code></li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>Step 3: Install Visual Studio Code</h3>
+            <ol>
+                <li><strong>Download and Install VSCode:</strong>
+                    <ul>
+                        <li>Go to the <a href="https://code.visualstudio.com" target="_blank">Visual Studio Code website</a> and download the installer.</li>
+                        <li>Follow the instructions to install VSCode on your system.</li>
+                    </ul>
+                </li>
+                <li><strong>Configure VSCode for SplashKit:</strong>
+                    <ul>
+                        <li>Install the necessary extensions for C++, C#, or Python, depending on your preferred language.</li>
+                        <li>Set up build tasks to compile and run SplashKit projects directly from VSCode.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>Step 4: Install Language-Specific Tools</h3>
+            <p>Depending on the programming language you want to use with SplashKit, you'll need to install the corresponding tools and libraries.</p>
+            <ul>
+                <li><strong>C++:</strong>
+                    <ul>
+                        <li>Install the C++ compiler and libraries using MSYS2:</li>
+                        <li><code>pacman -S mingw-w64-x86_64-gcc</code></li>
+                    </ul>
+                </li>
+                <li><strong>C#:</strong>
+                    <ul>
+                        <li>Install .NET Core SDK:</li>
+                        <li>Download it from <a href="https://dotnet.microsoft.com/download" target="_blank">.NET Core website</a>.</li>
+                    </ul>
+                </li>
+                <li><strong>Python:</strong>
+                    <ul>
+                        <li>Install Python and necessary packages:</li>
+                        <li><code>pacman -S mingw-w64-x86_64-python</code></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="note">
+                Note: The installation steps may vary depending on your operating system and specific configuration. Refer to the SplashKit documentation for the most up-to-date instructions.
+            </div>
+        </section>
+
+        <section id="examples">
+            <h2>Examples: Drawing Shapes with SplashKit</h2>
+            <p>Here are some simple examples demonstrating how to draw shapes using SplashKit in C#.</p>
+
+            <h3>Drawing a Circle</h3>
+            <div class="example-code">
+                <code>
+using SplashKitSDK;
+
+public class Program
+{
+    public static void Main()
+    {
+        SplashKit.ProcessEvents();
+        SplashKit.ClearScreen(Color.White);
+        SplashKit.DrawCircle(Color.Red, 100, 100, 50);
+        SplashKit.RefreshScreen();
+    }
+}
+                </code>
+            </div>
+
+            <h3>Drawing a Rectangle</h3>
+            <div class="example-code">
+                <code>
+using SplashKitSDK;
+
+public class Program
+{
+    public static void Main()
+    {
+        SplashKit.ProcessEvents();
+        SplashKit.ClearScreen(Color.White);
+        SplashKit.DrawRectangle(Color.Blue, 50, 50, 200, 100);
+        SplashKit.RefreshScreen();
+    }
+}
+                </code>
+            </div>
+
+            <h3>Drawing a Parallelogram</h3>
+            <div class="example-code">
+                <code>
+using SplashKitSDK;
+
+public class Program
+{
+    public static void Main()
+    {
+        SplashKit.ProcessEvents();
+        SplashKit.ClearScreen(Color.White);
+        Point2D[] points = 
+        {
+            new Point2D { X = 100, Y = 100 },
+            new Point2D { X = 200, Y = 100 },
+            new Point2D { X = 250, Y = 200 },
+            new Point2D { X = 150, Y = 200 }
+        };
+        SplashKit.DrawPolygon(Color.Green, points);
+        SplashKit.RefreshScreen();
+    }
+}
+                </code>
+            </div>
+        </section>
+
+        <section id="data-science">
+            <h2>SplashKit in Data Science</h2>
+            <p>SplashKit's multimedia capabilities can be leveraged in data science projects for visualizations and interactive data presentations. Although it is not a data science tool per se, it can enhance the user experience by providing interactive and engaging visualizations for complex datasets.</p>
+        </section>
+
+        <section id="use-cases">
+            <h2>Real-Life Use Cases</h2>
+            <p>SplashKit has been used in various real-life projects to create interactive applications, educational tools, and multimedia experiences. Here are a few examples:</p>
+            <ul>
+                <li><strong>Educational Games:</strong> Used in schools to create engaging educational games that help students learn various subjects through interactive play.</li>
+                <li><strong>Interactive Art Installations:</strong> Implemented in art galleries to create interactive installations that respond to user input.</li>
+                <li><strong>Prototyping:</strong> Utilized by developers to quickly prototype and test multimedia applications and games.</li>
+            </ul>
+        </section>
+
+        <section id="contributors">
+            <h2>Contributors</h2>
+            <div class="contributors">
+                <p>The following individuals have contributed to the development and documentation of SplashKit:</p>
+                <ul>
+                    <li><strong>Yoginder Syal</strong> - Contributed to this blog. Connect with Yoginder on <a href="https://www.linkedin.com/in/yoginder-syal-170090192/" target="_blank">LinkedIn</a>.</li>
+                    <li><strong>Deepkaran Singh</strong> - Contributed to this blog. Connect with Deepkaran on <a href="https://www.linkedin.com/in/deepkaran-singh-6612b61a0/" target="_blank">LinkedIn</a>.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 SplashKit Documentation. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
